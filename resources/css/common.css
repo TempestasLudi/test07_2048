@@ -1,9 +1,9 @@
 body{
-	background-color:#F4F4FF;
-	font-family:Calibri, Arial, Sans-Serif;
+	/*background-color:#F4F4FF;
+	font-family:Calibri, Arial, Sans-Serif;*/
 }
 div.game-wrapper{
-	padding: 25px;
+	/*padding: 25px;
 	border-radius:25px;
 	border:1px solid #DDDDDD;
 	background-color:white;
@@ -17,8 +17,18 @@ div.game-wrapper{
 	width:640px;
 	overflow:hidden;
 	position:relative;
-	cursor:none;
+	cursor:none;*/
+	background-color:#bbada0;
+	padding:4px;
+	border-radius:4px;
+	width:580px;
+	margin:auto;
 }
-img.cursor{
-	position:absolute;
+div.grid-cell{
+	width:64px;
+	height:64px;
+	display:inline-block;
+	border-radius:2px;
+	background-color:rgba(238, 228, 218, 0.35);
+	margin:4px;
 }

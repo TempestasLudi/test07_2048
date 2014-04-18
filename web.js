@@ -3,9 +3,9 @@
 	fs = require('fs');
 
 var pages = {
-	'\\': 'index.html',
-	'\\index': 'index.html',
-	'\\index.html': 'index.html'
+	'\\': 'index.js',
+	'\\index': 'index.js',
+	'\\index.js': 'index.js'
 };
 var resources = {
 	'.css': {location: 'css', mime: 'text/css'},
@@ -32,15 +32,22 @@ http.createServer(function(req, resp){
 		}
 		else if(pages[path.normalize(req.url)] != undefined){
 			console.log('new page request: '+req.url);
-			var url = 'resources/html/'+pages[path.normalize(req.url)];
-			fs.readFile('resources/html/'+pages[path.normalize(req.url)], {'encoding':'UTF-8'}, function(err, data){
-				if(err){
-					console.log(err);
-				}
-				resp.writeHead(200, {'Content-Type': 'text/html'});
-				resp.write(data);
+			var url = './resources/html/'+pages[path.normalize(req.url)];
+			if(path.extname(url) == '.html'){
+				fs.readFile(url, {'encoding':'UTF-8'}, function(err, data){
+					if(err){
+						console.log(err);
+					}
+					resp.writeHead(200, {'Content-Type': 'text/html'});
+					resp.write(data);
+					resp.end();
+				});
+			}
+			else if(path.extname(url) == '.js'){
+				var page = require(url);
+				resp.write(page.display());
 				resp.end();
-			});
+			}
 		}
 		else{
 			console.log('new rejected request: '+req.url);

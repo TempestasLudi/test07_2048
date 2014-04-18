@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 	var url;
 	if(window.location.hostname == '127.0.0.1' || window.location.hostname.substr(0, 7) == '192.168' || window.location.hostname == 'localhost'){
 		url = 'ws://'+window.location.hostname+':8081';
@@ -6,7 +6,7 @@ $(document).ready(function(){
 	else{
 		url = 'ws://'+window.location.hostname+':81';
 	}
-		
+
 	connection = new WebSocket(url);
 	connection.onopen = function(){
 		//prompt("Please enter your name", getName());
@@ -76,4 +76,4 @@ function getName(){
 		'book'
 	]
 	return part1[Math.floor(Math.random()*part1.length)]+' '+part2[Math.floor(Math.random()*part2.length)];
-}
+}*/
