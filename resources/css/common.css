@@ -1,0 +1,24 @@
+body{
+	background-color:#F4F4FF;
+	font-family:Calibri, Arial, Sans-Serif;
+}
+div.game-wrapper{
+	padding: 25px;
+	border-radius:25px;
+	border:1px solid #DDDDDD;
+	background-color:white;
+	box-shadow: 3px 3px 3px #888888 inset;
+	height:480px;
+	margin-top:3%;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	vertical-align:top;
+	width:640px;
+	overflow:hidden;
+	position:relative;
+	cursor:none;
+}
+img.cursor{
+	position:absolute;
+}
