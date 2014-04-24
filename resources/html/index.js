@@ -1,11 +1,11 @@
 exports.display = function(){
-	var page = '<html><head><title>Simple game</title><link rel="stylesheet" href="common.css" /><script src="jquery.js"></script><script src="game.js"></script></head><body>';
+	var page = '<html><head><title>Menu</title><link rel="stylesheet" href="common.css" /><script src="jquery.js"></script><script src="game.js"></script></head><body>';
 	
-	page += '<div class="menu-wrapper screen">';
-	page += '<button class="set-screen" data-screen="name-wrapper">Set name</button>';
-	page += '<button class="set-screen" data-screen="game-creator">Create game</button>';
-	page += '<button class="set-screen" data-screen="games-wrapper">Join game</button>';
-	page += '</div>';
+	page += '<div class="menu-wrapper screen"><div class="content">';
+	page += '<button class="set-screen" data-screen="set-name">Set name</button><br />';
+	page += '<button class="set-screen" data-screen="create-game">Create game</button><br />';
+	page += '<button class="set-screen" data-screen="lobby">Join game</button>';
+	page += '</div></div>';
 	
 	page += '<div class="game-wrapper screen">';
 	page += '<div class="board">';
@@ -33,17 +33,26 @@ exports.display = function(){
 	page += '</div>';
 	
 	page += '<div class="name-wrapper screen">';
-	page += '<div class="form"><label>Name</label><input type="text" class="name" value="shuffler'+(Math.floor(Math.random()*900)+100)+'" /><button class="set-screen" data-screen="menu-wrapper">Back to menu</button></div>';
+	page += '<div class="form"><label>Name</label><input type="text" class="name" value="shuffler'+(Math.floor(Math.random()*900)+100)+'" />';
+	page += '<button class="set-screen" data-screen="menu">Back to menu</button></div>';
 	page += '</div>';
 	
 	page += '<div class="games-wrapper screen">';
+	page += '<div class="games"></div><div class="menu"><button class="set-screen" data-screen="menu">Cancel</button></div>';
 	page += '</div>';
 	
 	page += '<div class="game-creator screen">';
 	page += '<div class="form">';
 	page += '<label>Players</label><input type="text" class="players" value="4" />';
 	page += '<label>Name</label><input type="text" class="name" />';
+	page += '<button class="create">Create</button>';
+	page += '<button class="set-screen" data-screen="menu">Cancel</button>';
 	page += '</div>';
+	page += '</div>';
+	
+	page += '<div class="game-waiter screen">';
+	page += '<div class="players"></div>';
+	page += '<div class="menu"><button class="set-screen" data-screen="lobby">Leave</button></div>';
 	page += '</div>';
 	
 	page += '</body></html>';

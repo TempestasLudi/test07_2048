@@ -46,6 +46,14 @@ div.game-creator{
 	left:0px;
 	top:100%;
 }
+div.game-waiter{
+	left:100%;
+	top:100%;
+}
+div.content{
+	margin-left:50%;
+	margin-top:250px;
+}
 label{
 	width:100px;
 	float:left;
@@ -57,9 +65,33 @@ input{
 }
 button{
 	clear:left;
+	width:120px;
+	margin-right:10px;
 }
 .form{
-	width:250px;
+	width:260px;
 	margin:auto;
 	margin-top:250px;
+}
+/*games-wrapper*/
+.games-wrapper .games{
+	width:80%;
+	height:100%;
+	display:inline-block;
+	vertical-align:top;
+}
+.games-wrapper .menu{
+	display:inline-block;
+	vertical-align:top;
+}
+/*game-waiter*/
+.game-waiter .players{
+	width:80%;
+	height:100%;
+	display:inline-block;
+	vertical-align:top;
+}
+.game-waiter .menu{
+	display:inline-block;
+	vertical-align:top;
 }
