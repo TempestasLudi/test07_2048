@@ -2,29 +2,28 @@
 	wss = new WebSocketServer({port: 8081});
 
 sockets = [];
-
-setInterval(persons, 50);
-setInterval(cleanup, 5000);
+games = [[game:{},players[]]];
 
 wss.on('connection', function(ws) {
 	console.log('new connection');
 	ws.on('message', function(e) {
 		message = JSON.parse(e);
 		var resp = {};
-		if(message.action == 'set'){
-			for(i in message){
-				if(i != 'action'){
-					ws[i] = message[i];
-				}
-			}
+		if(message.action == 'move'){
+			
 		}
 		if(message.action == 'init'){
 			console.log(message.name+' connected');
 			ws.name = message.name;
 			ws.id = sockets.length;
-			ws.position = {x: Math.random()*640, y: Math.random()*480};
+			ws.game = games.length - 1;
 			ws.active = true;
 			sockets[sockets.length] = ws;
+			ws.field = games[games.length-1].length;
+			games[games.length-1].push(ws);
+			if(games[games.length-1].length == 4){
+				games.push([]);
+			}
 		}
 	});
 	ws.on('close', function(){
@@ -33,30 +32,3 @@ wss.on('connection', function(ws) {
 	});
 });
 console.log('wsServer created');
-
-function send(resp){
-	for(i in sockets){
-		if(sockets[i].active){
-			try{
-				sockets[i].send(JSON.stringify(resp));
-			}
-			catch(err){
-				console.log(err);
-			}
-		}
-	}
-}
-
-function persons(){
-	var persons = [];
-	for(i in sockets){
-		if(sockets[i].active){
-			persons[sockets[i].id] = {name: sockets[i].name, position: sockets[i].position};
-		}
-	}
-	send({action: 'persons', persons: persons});
-}
-
-function cleanup(){
-	
-}
