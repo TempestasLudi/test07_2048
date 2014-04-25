@@ -20,6 +20,7 @@ wss.on('connection', function(ws) {
 				players.push(ws);
 			break;
 			case 'nameChange':
+				console.log(ws.name+' changed name to '+message.name);
 				ws.name = message.name;
 			break;
 			case 'createGame':
@@ -43,12 +44,16 @@ wss.on('connection', function(ws) {
 						players[i].send(message);
 					}
 				}
+				
+				console.log(ws.name+' created game '+message.name);
 			break;
 			case 'joinLobby':
 				ws.lobby = 1;
+				console.log(ws.name+' joined lobby');
 			break;
 			case 'leaveLobby':
 				ws.lobby = 0;
+				console.log(ws.name+' left lobby');
 			break;
 			case 'joinGame':
 				
