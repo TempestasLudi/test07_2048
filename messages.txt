@@ -1,0 +1,18 @@
+﻿connect: client: initiate
+
+'init'
+'nameChange'
+'createGame'
+'joinLobby'
+'leaveLobby'
+'joinGame'
+'leaveGame'
+'move'
+
+'move'
+'gameEnd'
+'lobbyList'
+'gameStart'
+'playerList'
+
+disconnect: ?

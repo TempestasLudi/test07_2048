@@ -13,8 +13,7 @@ wss.on('connection', function(ws) {
 			case 'init':
 				console.log(message.name+' connected');
 				ws.name = message.name;
-				ws.id = sockets.length;
-				ws.game = games.length - 1;
+				ws.id = players.length;
 				ws.active = true;
 				ws.lobby = 0;
 				players.push(ws);
@@ -28,7 +27,7 @@ wss.on('connection', function(ws) {
 				game.status = 0;
 				game.players = [];
 				game.playerCount = message.playerCount;
-				game.name = ;
+				game.name = message.name;
 				game.board = [];
 				for(var i=0;i<8;i++){
 					game.board[i] = [];
