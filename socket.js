@@ -39,7 +39,7 @@ wss.on('connection', function(ws) {
 				
 				var message = JSON.stringify({action: 'lobbyList', games: games});
 				for(var i=0;i<players.length;i++){
-					if(player[i].lobby == 1 && player[i].active == true){
+					if(players[i].lobby == 1 && players[i].active == true){
 						players[i].send(message);
 					}
 				}
@@ -49,6 +49,8 @@ wss.on('connection', function(ws) {
 			case 'joinLobby':
 				ws.lobby = 1;
 				console.log(ws.name+' joined lobby');
+				var message = JSON.stringify({action: 'lobbyList', games: games});
+				ws.send(message);
 			break;
 			case 'leaveLobby':
 				ws.lobby = 0;
