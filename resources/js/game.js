@@ -26,7 +26,7 @@ $(document).ready(function(){
                                 
                             break;
                             case 'lobbyList':
-                                
+                                createLobby(message.games);
                             break;
                             case 'gameStart':
                                 
@@ -81,3 +81,9 @@ function moveView(screen){
 	});
 }
 
+function createLobby(games){
+            $('.games-wrapper .games').html('');
+            for(var i in games){
+                $('.games-wrapper .games').append('<div class="game"><table><tr><td class="game-name">' + games[i].name + '</td><td class="game-playercount">' + games[i].players.length + '/' + games[i].playerCount + '</td></div>');
+            }
+}
