@@ -43,7 +43,7 @@ exports.display = function(){
 	
 	page += '<div class="game-creator screen">';
 	page += '<div class="form">';
-	page += '<label>Players</label><input type="text" class="players" value="4" />';
+	page += '<label>Players</label><input type="text" disabled="disabled" class="players" value="4" />';
 	page += '<label>Name</label><input type="text" class="name" />';
 	page += '<button class="create">Create</button>';
 	page += '<button class="set-screen" data-screen="menu">Cancel</button>';
