@@ -50,7 +50,7 @@ $(document).ready(function(){
 	});
 	
 	$('.game-creator button.create').click(function(){
-                        connection.send(JSON.stringify({action: 'createGame', name: $('.game-creator .name').val(), playerCount:$('.game-creator .players')}))
+                        connection.send(JSON.stringify({action: 'createGame', name: $('.game-creator .name').val(), playerCount:$('.game-creator .players').val()}))
 		moveView('waiting-room');
 	});
             
@@ -60,6 +60,10 @@ $(document).ready(function(){
             
             $('.set-screen[data-screen="lobby"]').click(function(){
                         connection.send(JSON.stringify({action: 'joinLobby'}));
+            });
+            
+            $('.games-wrapper .set-screen[data-screen="menu"]').click(function(){
+                        connection.send(JSON.stringify({action: 'leaveLobby'}));
             });
 });
 
