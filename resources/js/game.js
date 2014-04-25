@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 	connection = new WebSocket(url);
 	connection.onopen = function(){
-		connection.send(JSON.stringify({action: 'init', name: getName()}));
+		connection.send(JSON.stringify({action: 'init', name: $('.name-wrapper .name').val()}));
 	};
 	
 	connection.onerror = function(error) {
@@ -18,6 +18,23 @@ $(document).ready(function(){
 	
 	connection.onmessage = function(e){
 		var message = JSON.parse(e.data);
+                        switch (message.action){
+                            case 'move':
+                                
+                            break;
+                            case 'gameEnd':
+                                
+                            break;
+                            case 'lobbyList':
+                                
+                            break;
+                            case 'gameStart':
+                                
+                            break;
+                            case 'playerList':
+                                
+                            break;
+                        }
 	};
 	
 	pages = {};
@@ -33,8 +50,17 @@ $(document).ready(function(){
 	});
 	
 	$('.game-creator button.create').click(function(){
+                        connection.send(JSON.stringify({action: 'createGame', name: $('.game-creator .name').val(), playerCount:$('.game-creator .players')}))
 		moveView('waiting-room');
 	});
+            
+            $('.name-wrapper .name').change(function(){
+                        connection.send(JSON.stringify({action: 'nameChange', name: $('.name-wrapper .name').val()}));
+            });
+            
+            $('.set-screen[data-screen="lobby"]').click(function(){
+                        connection.send(JSON.stringify({action: 'joinLobby'}));
+            });
 });
 
 function moveView(screen){
@@ -50,3 +76,4 @@ function moveView(screen){
 		$(this).animate({left: (posLeft - left)+'%', top: (posTop - top)+'%'});
 	});
 }
+
