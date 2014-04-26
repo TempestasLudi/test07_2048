@@ -9,26 +9,29 @@ exports.display = function(){
 	
 	page += '<div class="game-wrapper screen">';
 	page += '<div class="board">';
+	page += '<div class="grid-container">';
 	for(var i=0;i<8;i++){
 		page += '<div class="grid-row">';
 		for(var j=0;j<8;j++){
 			var style = '';
-			if(j == 3 || j == 7){
-				style += 'border-right:1px solid black;';
+			/*if(j == 3 || j == 7){
+				style += 'border-right:2px solid #888888;';
 			}
 			if(i == 3 || i == 7){
-				style += 'border-bottom:1px solid black;';
+				style += 'border-bottom:2px solid #888888;';
 			}
 			if(j == 0 || j == 4){
-				style += 'border-left:1px solid black;';
+				style += 'border-left:2px solid #888888;';
 			}
 			if(i == 0 || i == 4){
-				style += 'border-top:1px solid black;';
-			}
+				style += 'border-top:2px solid #888888;';
+			}*/
 			page += '<div style="'+style+'" class="grid-cell"></div>';
 		}
 		page += '</div>';
 	}
+	page += '</div>'
+	page += '<div class="tile-container"></div>';
 	page += '</div>';
 	page += '</div>';
 	
@@ -43,7 +46,7 @@ exports.display = function(){
 	
 	page += '<div class="game-creator screen">';
 	page += '<div class="form">';
-	page += '<label>Players</label><input type="text" disabled="disabled" class="players" value="4" />';
+	page += '<label>Players</label><input type="text" disabled="disabled" class="players" value="2" />';
 	page += '<label>Name</label><input type="text" class="name" />';
 	page += '<button class="create">Create</button>';
 	page += '<button class="set-screen" data-screen="menu">Cancel</button>';

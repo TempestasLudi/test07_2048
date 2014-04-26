@@ -7,16 +7,18 @@ div.board{
 	background-color:#bbada0;
 	padding:4px;
 	border-radius:4px;
-	width:580px;
+	width:576px;
 	margin:auto;
+	position:relative;
 }
 div.grid-cell{
 	width:64px;
 	height:64px;
 	display:inline-block;
 	border-radius:2px;
-	background-color:rgba(238, 228, 218, 0.35);
+	background-color:rgba(119, 114, 109, 0.35);
 	margin:4px;
+	box-shadow:#444444 2px 2px 2px inset;
 }
 div.screen{
 	position:absolute;
@@ -86,11 +88,18 @@ button{
 }
 
 .games-wrapper .games .game{
-            margin: 20px 50px 20px 20px;
+    margin: 20px 50px 20px 20px;
+	cursor:pointer;
 }
 
-.games-wrapper .games .game .game-name{
-            width: 400px;
+.games-wrapper .games .game .name{
+	display:inline-block;
+    width: 400px;
+}
+
+.games-wrapper .games .game .playercount{
+	display:inline-block;
+    width: calc(100% - 400px);
 }
 
 /*game-waiter*/
@@ -103,4 +112,21 @@ button{
 .game-waiter .menu{
 	display:inline-block;
 	vertical-align:top;
+}
+
+.game-waiter .players .player{
+    margin: 20px 50px 20px 20px;
+}
+
+div.tile{
+	width:64px;
+	height:64px;
+	position:absolute;
+	border-radius:2px;
+	background-color:#DDDDDD;
+	font-weight:bold;
+	font-size:30px;
+	font-family:"Clear Sans", "Helvetica Neue", Arial, sans-serif;
+	text-align:center;
+	line-height:64px;
 }
