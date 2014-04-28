@@ -101,7 +101,28 @@ wss.on('connection', function(ws) {
 				}
 			break;
 			case 'move':
-				
+				var dir = {x: Math.cos(message.direction), y: -Math.sin(message.direction)};
+				var xPlus = 0;
+				var yPlus = 0;
+				if(ws.field > 1){
+					yPlus = 4;
+				}
+				if(ws.field/2 != Math.round(ws.field/2)){
+					xPlus = 4;
+				}
+				var done = false;
+				var game = games[ws.game];
+				for(var i = yPlus + 1.5 - 1.5*(dir.y+dir.x); i != yPlus + 1.5 + 2.5*(dir.y+dir.x);i += dir.x+dir.y){
+					for(var j = xPlus + 1.5 - 1.5*(dir.y+dir.x); j!= xPlus + 1.5 + 2.5*(dir.y+dir.x);j+= dir.x+dir.y){
+						if(game.board[i][j]){
+							for(var t = Math.abs(dir.y)*i + Math.abs(dir.x)*j;t != 3.5 + 4.5*(dir.x + dir.y); t += dir.x+dir.y){
+								if(t == 0 || t == 7 || (board[t*])){
+									
+								}
+							}
+						}
+					}
+				}
 			break;
 		}
 	});

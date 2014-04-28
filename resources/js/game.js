@@ -7,9 +7,9 @@ $(document).ready(function(){
 		url = 'ws://'+window.location.hostname+':81';
 	}
 	
-	game = {status = 0};
+	game = {status:0};
 	
-	keymap = [37: 'left', 38: 'top', 39: 'right', 40: 'bot'];
+	keymap = {37: Math.PI, 38: 0.5*Math.PI, 39: 0, 40: 1.5*Math.PI};
 
 	connection = new WebSocket(url);
 	connection.onopen = function(){
@@ -113,10 +113,8 @@ $(document).ready(function(){
 	});
 	
 	$('body').keypress(function(e){
-		if(game.status == 1){
-			if(e.which <= 40 && e.which >= 37){
-				connection.send(JSON.stringify({action: 'move', direction: keymap[e.which]}));
-			}
+		if(game.status == 1 || (e.which <= 40 && e.which >= 37)){
+			connection.send(JSON.stringify({action: 'move', direction: keymap[e.which]}));
 		}
 	});
 });
